@@ -42,3 +42,8 @@ docker rm -f $(docker ps -aq)
        to make it in attach mode  "docker logs -f countainer_name"
 //3- auto delete countainer after stop 
     "docker run --rm image_name"
+//4- docker image inspect image_name
+
+  
+  
+  
