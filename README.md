@@ -43,7 +43,7 @@ docker rm -f $(docker ps -aq)
 //3- auto delete countainer after stop 
     "docker run --rm image_name"
 //4- docker image inspect image_name
-
+5- docker tag old_image_name new_image_name
   
   
   
