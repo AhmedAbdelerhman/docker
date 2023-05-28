@@ -35,10 +35,10 @@ docker rmi <image_name>
 docker rm -f $(docker ps -aq)
   
   notes 
-  1- EXPOSE in docekr file for only docmentation optional
-  2-  attach mode you can lisen to logs for container 
+ // 1- EXPOSE in docekr file for only docmentation optional
+ // 2-  attach mode you can lisen to logs for container 
       dettach mode countainer running in the backgroun 
        defualt behouvior for "docker start countainer_name"  is dettach 
        to make it in attach mode  "docker logs -f countainer_name"
- 3- auto delete countainer after stop 
+//3- auto delete countainer after stop 
     "docker run --rm image_name"
