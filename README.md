@@ -45,5 +45,8 @@ docker rm -f $(docker ps -aq)
 //4- docker image inspect image_name
 5- docker tag old_image_name new_image_name
   
+6- to explore the running container 
+   docker exec  -it container_name sh
+  
   
   
