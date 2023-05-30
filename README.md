@@ -36,17 +36,27 @@ docker rm -f $(docker ps -aq)
   
   notes 
  // 1- EXPOSE in docekr file for only docmentation optional
+  
  // 2-  attach mode you can lisen to logs for container 
       dettach mode countainer running in the backgroun 
        defualt behouvior for "docker start countainer_name"  is dettach 
        to make it in attach mode  "docker logs -f countainer_name"
+  
 //3- auto delete countainer after stop 
     "docker run --rm image_name"
+  
 //4- docker image inspect image_name
+  
 5- docker tag old_image_name new_image_name
   
 6- to explore the running container 
    docker exec  -it container_name sh
+  
+7- docker volumes
+  docker run  --name appVolumeCountainer -p 3000:3000  -d  -v feedback:/app/feedback app:volum
+  this commaned run a countainer calle appVolumeCountainer  based on image app:volum 
+   and create volume  called feedback  for folder /app/feedback
+ 
   
   
   
