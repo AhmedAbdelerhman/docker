@@ -56,6 +56,9 @@ docker rm -f $(docker ps -aq)
   docker run  --name appVolumeCountainer -p 3000:3000  -d  -v feedback:/app/feedback app:volum
   this commaned run a countainer calle appVolumeCountainer  based on image app:volum 
    and create volume  called feedback  for folder /app/feedback
+8- anonymous volume (without name ) will remove with container not used for perisit data
+   
+   
  
   
   
