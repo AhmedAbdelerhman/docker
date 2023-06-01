@@ -62,8 +62,15 @@ docker rm -f $(docker ps -aq)
   
    ex: docker run  -v "home/folder/project:path to container:ro"
   
-   
- 
+ 10- --env  to set variable ex
+   in code : app.listen(process.env.PORT);
+   dockerFile:
+    ENV PORT 3000  // defoult value if we did not specify the value in docker comand 
+    EXPOSE $PORT 
+   docker command: docker run -p 3000:4000    --env PORT=4000  image_name
   
+ 11 - --env-file we can put PORT=4000 in .env file 
+  ex: make .env file and  write on it PORT=4000 
+  docke rcomand : docker run -p 3000:4000    --env-file ./.env  image_name 
   
   
