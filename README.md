@@ -73,4 +73,12 @@ docker rm -f $(docker ps -aq)
   ex: make .env file and  write on it PORT=4000 
   docke rcomand : docker run -p 3000:4000    --env-file ./.env  image_name 
   
+  12- ARG  if you want to set defualt  port dinamiclly in building the image 
+      ex: dockerfile 
+        ARG DEFAULT_PORT=3000
+        ENV PORT $DEFAULT_PORT
+      docker comannd docker build -t  image:arg --build-arg DEFAULT_PORT=3000 .
+  
+  
+  
   
