@@ -57,7 +57,11 @@ docker rm -f $(docker ps -aq)
   this commaned run a countainer calle appVolumeCountainer  based on image app:volum 
    and create volume  called feedback  for folder /app/feedback
 8- anonymous volume (without name ) will remove with container not used for perisit data
-   
+  
+ 9- bind mount volume can overwrite localhost files (your codes) so ypu should add :ro
+  
+   ex: docker run  -v "home/folder/project:path to container:ro"
+  
    
  
   
