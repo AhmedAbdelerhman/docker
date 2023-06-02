@@ -79,6 +79,15 @@ docker rm -f $(docker ps -aq)
         ENV PORT $DEFAULT_PORT
       docker comannd docker build -t  image:arg --build-arg DEFAULT_PORT=3000 .
   
+  13- network 
+      container can send http request to web without any config
+      to connect to your local host from a container use host.docker.internal 
+      ex : 'mongodb://host.docker.internal :27017/swfavorites',
+      
+  to connect to network 
+   first create network : docker network create my net 
+   secound 
+  
   
   
   
