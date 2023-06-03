@@ -89,7 +89,8 @@ docker rm -f $(docker ps -aq)
    secound  : docker run --network my-net  --name container1 image 
    third : docker run --network my-net  --name container2   image 
    
-  
-  
+  14- react app container must run with -it   
+   docker run  -it  reactimage 
+   react: runs in the browser so it cant join the docker network or connect to container in docker network
   
   
