@@ -85,8 +85,10 @@ docker rm -f $(docker ps -aq)
       ex : 'mongodb://host.docker.internal :27017/swfavorites',
       
   to connect to network 
-   first create network : docker network create my net 
-   secound 
+   first create network : docker network create my-net 
+   secound  : docker run --network my-net  --name container1 image 
+   third : docker run --network my-net  --name container2   image 
+   
   
   
   
