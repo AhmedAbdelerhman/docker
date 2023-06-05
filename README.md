@@ -93,4 +93,60 @@ docker rm -f $(docker ps -aq)
    docker run  -it  reactimage 
    react: runs in the browser so it cant join the docker network or connect to container in docker network
   
+  15- to make container act as it running in local host you have to use  -p 3000:3000 or any port 
+      for example front end cant connect docker network and it will only connect to connect to local host nestwork 
+
+
+16 docker compose 
+
+
+
+version: "3.8"  // version of comanneds
+services: // name of servces or containers that will running 
+  mongodb:  // service 1 
+    image: 'mongo' // use image mogo from docker hub 
+  # container_name: monogahmedcontainer  //optional to name your container if it not spicfy that i will randomly generated
+    volumes: 
+      - data:/data/db //name volume it must to be added in volumes below
+    # environment:  // two ways to add envs specify one by one or 
+    #   MONGO_INITDB_ROOT_USERNAME: max
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
+      # - MONGO_INITDB_ROOT_USERNAME=max
+    env_file:   //  add  env file path
+      - ./env/mongo.env
+  backend:
+    build: ./backend // use docker file to build the image 
+    # build:  // optinal if you named docker file with any other name you must specify the context and deockerfile : 
+    #   context: ./backend  
+    #   dockerfile: Dockerfile
+    #   args:
+    #     some-arg: 1
+    ports:
+      - '80:80'
+    volumes: 
+      - logs:/app/logs // named container must add to volumes below
+      - ./backend:/app // it is the bind mount no need to write the abslute path
+      - /app/node_modules // anynoumous conatiner name 
+    env_file: 
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+  frontend:
+    build: ./frontend
+    ports: 
+      - '3000:3000'
+    volumes: 
+      - ./frontend/src:/app/src
+    stdin_open: true // it is to use -it  to run react container 
+    tty: true
+    depends_on:  // not running untill run backend container 
+      - backend
+
+volumes: 
+  data:
+  logs:
+
+  #  docker-compose up --build
+
+  
   
