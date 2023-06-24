@@ -53,6 +53,10 @@ docker rm -f $(docker ps -aq)
    docker exec  -it container_name sh
   
 7- docker volumes
+    1- anonumous volume manged by docker and deleted when we delete container
+    2- named volume manged by docker and nit deleted ...... 
+    3- bind mounted connect docker container files with our localhost files and be carefull 
+       to use it becouse may container files overwrite your localhost  files  
   docker run  --name appVolumeCountainer -p 3000:3000  -d  -v feedback:/app/feedback app:volum
   this commaned run a countainer calle appVolumeCountainer  based on image app:volum 
    and create volume  called feedback  for folder /app/feedback
