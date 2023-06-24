@@ -57,6 +57,7 @@ docker rm -f $(docker ps -aq)
     2- named volume manged by docker and nit deleted ...... 
     3- bind mounted connect docker container files with our localhost files and be carefull 
        to use it becouse may container files overwrite your localhost  files  
+       ex: -v  "$(pwd):/app" 
   docker run  --name appVolumeCountainer -p 3000:3000  -d  -v feedback:/app/feedback app:volum
   this commaned run a countainer calle appVolumeCountainer  based on image app:volum 
    and create volume  called feedback  for folder /app/feedback
@@ -100,6 +101,27 @@ docker rm -f $(docker ps -aq)
   15- to make container act as it running in local host you have to use  -p 3000:3000 or any port 
       for example front end cant connect docker network and it will only connect to connect to local host nestwork 
 
+   note : if two containers in the same network it can comunicate each other uing other container name 
+   ex i have container1  , container2 (is the mongodb container) , network:my-net 
+     inside container1 i can connect container2 by :
+      
+
+    mongoose.connect(
+      'mongodb://container2:27017/course-goals',
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      },
+      (err) => {
+        if (err) {
+          console.error('FAILED TO CONNECT TO MONGODB');
+          console.error(err);
+        } else {
+          console.log('CONNECTED TO MONGODB');
+          app.listen(8000);
+        }
+      }
+    );
 
 16 docker compose 
 
