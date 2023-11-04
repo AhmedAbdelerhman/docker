@@ -11,8 +11,8 @@ docker run -d -name my-website 8000:80 nginx
 // start exit container again
 docker start containerName 
 
-// creaye image called myredis and tag 1.1.1
-docker run ahmedabdo1/myredis:1.1.1
+// creaye container called myredis and tag 1.1.1
+docker run tag redis ahmedabdo1/myredis:1.1.1
 
 // build image from docker file
 docker build -t <image-name> .
@@ -22,7 +22,8 @@ docker build -t my-nest-app:v1.0 .
 // browse container 
 docker exec -it my_container bash
 
-// delete all images docker rmi -f $(docker images -aq)
+// delete all images 
+docker rmi -f $(docker images -aq)
 
 //pull inage 
 
@@ -61,6 +62,13 @@ docker rm -f $(docker ps -aq)
   docker run  --name appVolumeCountainer -p 3000:3000  -d  -v feedback:/app/feedback app:volum
   this commaned run a countainer calle appVolumeCountainer  based on image app:volum 
    and create volume  called feedback  for folder /app/feedback
+
+  bind mount for your Node.js application but exclude the node_modules
+    docker run -d --name node_app -v "$(pwd):/app" -v /app/node_modules my_node_app
+    "-v "$(pwd):/app" binds your current directory (excluding node_modules) to the /app directory in the container.
+    "-v /app/node_modules" creates an anonymous volume at the /app/node_modules directory within the container,
+    effectively excluding the node_modules directory from the bind mount.
+
 8- anonymous volume (without name ) will remove with container not used for perisit data
   
  9- bind mount volume can overwrite localhost files (your codes) so ypu should add :ro
@@ -176,3 +184,13 @@ volumes:
 
   
   
+17- deploy instance for aws 
+    after runnung ec2 instance and download secreats .pem
+    coneect to ec2 using bash terminal 
+    then install docker 
+    * sudo yum -y update
+    *sudo amazon-linux-extras install docker
+    *sudo service docker start
+    *sudo chkconfig docker on
+  
+  18-ECS elastic container service it is third party service that mange container for you
