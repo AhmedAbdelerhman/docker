@@ -12,7 +12,7 @@ docker run -d -name my-website 8000:80 nginx
 docker start containerName 
 
 // creaye image called myredis and tag 1.1.1
-docker run tag redis ahmedabdo1/myredis:1.1.1
+docker run ahmedabdo1/myredis:1.1.1
 
 // build image from docker file
 docker build -t <image-name> .
