@@ -194,6 +194,9 @@ volumes:
     *sudo chkconfig docker on
   
   18-ECS elastic container service it is third party service that mange container for you
+  In AWS, when you run containers using services like Amazon ECS (Elastic Container Service) 
+   or EKS (Elastic Kubernetes Service), the IP addresses of the containers can also change 
+   due to the dynamic nature of container orchestration.
 
 
 19- Multi-stage builds in Docker are a feature that allows you to use multiple FROM statements 
@@ -210,8 +213,14 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Stage 2: Create lightweight image to serve the built app
+# Stage 2: Create a lightweight image to serve the built app
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
+
+note : you can excute only one stage using --target flag 
+docker build --target build -t my-react-app-build .
+
+
+
