@@ -194,3 +194,24 @@ volumes:
     *sudo chkconfig docker on
   
   18-ECS elastic container service it is third party service that mange container for you
+
+
+19- Multi-stage builds in Docker are a feature that allows you to use multiple FROM statements 
+in your Dockerfile. Each FROM instruction can have its own environment and context, and only the
+final stage is retained in the final Docker image. 
+ex: React app require multi stage build one for build and other for run :
+
+
+# Stage 1: Build React App
+FROM node:14 as build
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Stage 2: Create lightweight image to serve the built app
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
