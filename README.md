@@ -304,8 +304,28 @@ and experiment with Kubernetes without needing access to a full-scale cluster.
 what do you need to install Kubernetes?
 
 you need to inatall kubectl and minikube
-then : minikube start with adminstaration termenal
+then :  minikube start --driver=docker with adminstaration termenal
 minikube  status 
-minikube dashbord
+minikube dashboard
 
+to create deployment 
+first you need to build image you want to deploy (ahmeddbah/kube-first-test)
+secound push it to docker hup 
+then  : kubectl create deployment --image=ahmeddbah/kube-first-test
+to verfy the deployment  kubectl get deployment  and kubectl get pods
+
+
+objects of kubernetes 
+objects are the basic building blocks that represent the state of your cluster. 
+1-Service:
+An abstraction that defines a logical set of pods and a policy by which to 
+access them. Services enable network communication between different sets of pods.
+2-Deployment:
+Manages ReplicaSets and provides declarative
+updates to applications. Deployments allow you to describe the
+desired state of your application and automatically handle the rollout of changes.
+3-Pod:
+The smallest deployable unit in Kubernetes. 
+A pod represents a single instance of a running process in a 
+cluster. It can contain one or more containers that share the same network namespace and storage.
 
