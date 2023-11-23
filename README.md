@@ -339,9 +339,21 @@ first-ap-kube deployment must be exist
 
 restart pod : 
  the Kubernetes will start the pods if they fail or stop 
+ 
  scale pods :
   we can scale our app by making more replicas so the load balancer will distribute the requests among them 
-  kubectl scale deployment/first-ap-kube --replica=3  // it will create 3 replica
+ kubectl scale deployment first-ap-kube  --replicas=3 // it will create 3 replica
+  
+update container on the deployment :
+ kubectl set image deployment/first-ap-kube  kube-first-test=ahmeddbah/kube-first-test:2
+It looks like you are using the kubectl command to update the image of a deployment in Kubernetes. 
+The command you provided is correct for updating the image of a deployment named first-ap-kube and 
+the container within it named kube-first-test to version 2 of the ahmeddbah/kube-first-test image.
+
+
+
+
+
 
   
 
