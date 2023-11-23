@@ -330,3 +330,14 @@ A pod represents a single instance of a running process in a
 cluster. It can contain one or more containers that share the same network namespace and storage.
 
 create service 
+
+1-docker expose deployment first-ap-kube --type=LoadBalancer --port=8080   , --type=NodePort // it will accessible but without loadblancer 
+first-ap-kube deployment must be exist 
+2- minikube service first-ap-kube  // this will create the loadblaner endpoint 
+
+restart pod : 
+ the kubernetes will start the pods if it fail or stops 
+ scale pods :
+  we can scale our app by make more replica so the load balancer will distribute the requests among them 
+  kubectl scale deployment/first-ap-kube --replica=3  // it will create 3 replica
+
