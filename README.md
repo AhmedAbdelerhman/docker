@@ -329,3 +329,4 @@ The smallest deployable unit in Kubernetes.
 A pod represents a single instance of a running process in a 
 cluster. It can contain one or more containers that share the same network namespace and storage.
 
+create service 
