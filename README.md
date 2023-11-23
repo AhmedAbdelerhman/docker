@@ -309,13 +309,13 @@ minikube  status
 minikube dashboard
 
 to create deployment 
-first you need to build image you want to deploy (ahmeddbah/kube-first-test)    // you have to set tag version
-secound push it to docker hup 
-then  : kubectl create deployment --image=ahmeddbah/kube-first-test
-to verfy the deployment  kubectl get deployment  and kubectl get pods
+first you need to build the image you want to deploy (ahmeddbah/kube-first-test)    // you have to set tag version
+second push it to docker hub 
+then: kubectl create deployment --image=ahmeddbah/kube-first-test
+to verify the deployment  kubectl get deployment  and kubectl get pods
 
 
-objects of kubernetes 
+objects of Kubernetes 
 objects are the basic building blocks that represent the state of your cluster. 
 1-Service:
 An abstraction that defines a logical set of pods and a policy by which to 
@@ -331,14 +331,14 @@ cluster. It can contain one or more containers that share the same network names
 
 create service 
 
-1-docker expose deployment first-ap-kube --type=LoadBalancer --port=8080   , --type=NodePort // it will accessible but without loadblancer 
+1-docker expose deployment first-ap-kube --type=LoadBalancer --port=8080   , --type=NodePort // it will accessible but without load balancer 
 first-ap-kube deployment must be exist 
-2- minikube service first-ap-kube  // this will create the loadblaner endpoint 
+2- minikube service first-ap-kube (deployment name )  //This will create the load balancer endpoint 
 
 restart pod : 
- the kubernetes will start the pods if it fail or stops 
+ the Kubernetes will start the pods if they fail or stop 
  scale pods :
-  we can scale our app by make more replica so the load balancer will distribute the requests among them 
+  we can scale our app by making more replicas so the load balancer will distribute the requests among them 
   kubectl scale deployment/first-ap-kube --replica=3  // it will create 3 replica
 
 
