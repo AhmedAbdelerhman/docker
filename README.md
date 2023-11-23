@@ -309,7 +309,7 @@ minikube  status
 minikube dashboard
 
 to create deployment 
-first you need to build image you want to deploy (ahmeddbah/kube-first-test)
+first you need to build image you want to deploy (ahmeddbah/kube-first-test)    // you have to set tag version
 secound push it to docker hup 
 then  : kubectl create deployment --image=ahmeddbah/kube-first-test
 to verfy the deployment  kubectl get deployment  and kubectl get pods
@@ -340,4 +340,5 @@ restart pod :
  scale pods :
   we can scale our app by make more replica so the load balancer will distribute the requests among them 
   kubectl scale deployment/first-ap-kube --replica=3  // it will create 3 replica
+
 
