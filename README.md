@@ -374,8 +374,25 @@ spec:
     
   
 
-
 kubectl apply -f deployment.yaml
+
+to create service . make file .yaml
+
+apiVersion: v1
+kind: Service 
+metadata:
+  name: backend
+spec:
+  selector:
+    app: dbah-app # the make of pod that you want to expose 
+  ports:
+    - protocol: 'TCP'
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+
+kubectl apply -f service.yaml
+
 
 
 
