@@ -354,7 +354,7 @@ declarative way to create kubernetes
 go and make file with .yaml
 ex:deployment.yaml 
 
- apiVersion: app/v1
+ apiVersion: apps/v1
 kind: Deployment  # other values is service ... you can find it in docs 
 metadata: 
   name: deployment-test
@@ -375,6 +375,7 @@ spec:
   
 
 
+kubectl apply -f deployment.yaml
 
 
 
