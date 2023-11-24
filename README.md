@@ -350,6 +350,30 @@ It looks like you are using the kubectl command to update the image of a deploym
 The command you provided is correct for updating the image of a deployment named first-ap-kube and 
 the container within it named kube-first-test to version 2 of the ahmeddbah/kube-first-test image.
 
+declarative way to create kubernetes 
+go and make file with .yaml
+ex:deployment.yaml 
+
+ apiVersion: app/v1
+kind: Deployment  # other values is service ... you can find it in docs 
+metadata: 
+  name: deployment-test
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dbah-app
+  template:  # for pod and image of pad
+    metadata:
+      labels:
+        app: dbah-app # you can name it anything ex deploy:dbah-app
+    spec:
+      containers:
+        - name: dbah-node
+          image: ahmeddbah/kube-first-test:3
+    
+  
+
 
 
 
