@@ -393,6 +393,10 @@ spec:
 
 kubectl apply -f service.yaml
 
+note you can  update  pods by change the .yaml and re apply it 
+to delete the resources that created by the file
+kubectl delete -f=deployment.yaml -f=service.yaml 
+
 
 
 
